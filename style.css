@@ -1,0 +1,192 @@
+:root{
+    /* Primary */
+    --Grayish-blue: hsl(237, 18%, 59%);
+    --Soft-red: hsl(345, 95%, 68%);
+
+    /* Neutral */
+    --White: hsl(0, 0%, 100%);
+    --Dark-desaturated-blue: hsl(236, 21%, 26%);
+    --dark-blue: hsl(235, 16%, 14%);
+    --Very-dark-blue: hsl(234, 17%, 12%);
+}
+
+
+/* ______________stylings______________ */
+*, *::before, *::after{
+    box-sizing: border-box;
+    font-family: 'Red Hat Text', sans-serif;
+    
+    padding: 0;
+    border: none;
+    margin: 0;
+}
+
+body{
+    background: url(images/pattern-hills.svg) bottom no-repeat,
+                url(images/bg-stars.svg) top no-repeat,
+                var(--Very-dark-blue);
+    background-size: contain;
+
+    min-height: 100vh;
+    height: 100%;
+    padding: 9em 0 2em;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 6em;
+    text-align: center;
+
+    width: 48em;
+    margin: 0 auto;
+}
+
+/* __________h1__________ */
+h1{
+    color: var(--White);
+    font-size: 24px;
+    letter-spacing: .6em;
+    text-transform: uppercase;
+}
+
+/* __________time__________ */
+.time{
+    display: flex;
+    justify-content: space-between;
+}
+
+.time > div{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.num{
+    width: 10em;
+    height: 9em;
+    position: relative;
+}
+
+.num::before, .num::after{
+    content: "";
+    width: 100%;
+    height: 50%;
+    border-radius: .6em;
+    
+    position: absolute;
+}
+
+.num::before{
+    background: hsl(242, 22%, 22%);
+    top: 0;
+    left: 0;
+}
+.num::after{
+    background: var(--Dark-desaturated-blue);
+    bottom: 0;
+    left: 0;
+}
+
+.num>p{
+    color: var(--Soft-red);
+    font-size: 54px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.decoration{
+    background: var(--dark-blue);
+    width: 100%;
+    height: .1em;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.decoration::before, .decoration::after{
+    content: "";
+    background: var(--Very-dark-blue);
+    width: .5em;
+    height: 1em;
+    
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.decoration::before{
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
+    left: 0;
+}
+.decoration::after{
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+    right: 0;
+}
+
+.time-desc{
+    color: var(--Grayish-blue);
+    letter-spacing: .2em;
+    text-transform: uppercase;
+}
+
+/* __________media__________ */
+.media{
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    margin-top: 5em;
+}
+
+svg:hover > path{
+    fill: var(--Soft-red);
+    cursor: pointer;
+}
+
+@media(max-width: 980px){
+    main{
+        width: 32em;
+    }
+    /* __________time__________ */
+    .num{
+        width: 7em;
+        height: 8em;
+    }
+}
+@media(max-width: 620px){
+    body{
+        background-size: 280vw, contain;
+        background-position: bottom right -6em, top center;
+    }
+    main{
+        width: 24em;
+    }
+    /* __________h1__________ */
+    h1{
+        font-size: 18px;
+    }
+    /* __________time__________ */
+    .num{
+        width: 5em;
+        height: 6em;
+    }
+    .num>p{
+        font-size: 36px;
+    }
+    .time-desc{
+        font-size: 12px;
+    }
+    /* __________media__________ */
+    .media{
+        margin-top: 10em;
+    }
+}
